@@ -9,9 +9,13 @@ export class Dinosaur {
     keydown(event) {
         console.log("key pressed",event)
         this.dy += -15 
+
+        // top left 49,416
+        // bottom right 169,545
+        // sprite width = 169-49 = 129
+        // sprite height - 545-416 = 129
+        this.sprite = {x: 49, y: 416, w: 120, h: 129 }
     }
-
-
 
     draw(ctx) {
         ctx.fillstyle = "rgb(255, 145 ,0"
