@@ -6,43 +6,55 @@ export class Dinosaur {
 
         this.sprite_sheet = new Image()
         this.sprite_sheet.src = 'dinosaur-sprites.png'
-        
-        document.addEventListener("keydown",this.keydown.bind(this))
+
+        document.addEventListener("keydown", this.keydown.bind(this))
 
         // top left 49,416
         // bottom right 169,545
         // sprite width = 169-49 = 129
         // sprite height - 545-416 = 129
-        this.sprite = {x: 49, y: 416, w: 120, h: 129}
-    
+        this.sprites = {
+            "standing": { x: 49, y: 416, w: 120, h: 129 },
+            "walking": { x: 193, y: 416, w: 120, h: 129 },
+            "walking2": { x: 337, y: 416, w: 120, h: 129 }
+
+        }
     }
     keydown(event) {
-        console.log("key pressed",event)
-        this.dy += -15 
+        console.log("key pressed", event)
+        this.dy += -15
     }
 
     draw(ctx) {
+        this.scale = 0.3
+        var current_sprite = "walking"
+        var sprite = this.sprites[current_sprite]
         // Draw Dinosaur sprite
         ctx.drawImage(this.sprite_sheet,
-            this.sprite.x, this.sprite.y,
-            this.sprite.w, this.sprite.h,
-            this.x,this.y,
-            this.sprite.w, this.sprite.h,
+            sprite.x, sprite.y,
+            sprite.w, sprite.h,
+
+            // destination cornor - upper left
+            this.x - sprite.w * this.scale / 2,
+            this.y - sprite.h * this.scale,
+            // destination scale
+            sprite.w * this.scale,
+            sprite.h * this.scale
         )
 
-        
+        /*
         ctx.fillstyle = "rgb(255, 145 ,0"
         ctx.beginPath()
         ctx.arc(this.x, this.y, 10, 0, Math.PI * 2)
         ctx.fill()
-        
+        */
 
         this.y += this.dy
         this.dy += 1
-        if (this.y > 400) { 
-         this.dy = 0
-         this.y = 400
+        if (this.y > 400) {
+            this.dy = 0
+            this.y = 400
         }
     }
-    
+
 }
