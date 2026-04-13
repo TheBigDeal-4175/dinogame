@@ -5,7 +5,7 @@ export class Dinosaur {
         this.dy = 0
 
         this.sprite_sheet = new Image()
-        this.sprite_sheet.src = 'dinosaur-sprites.png'
+        this.sprite_sheet.src = 'dinosprites.png'
 
         document.addEventListener("keydown", this.keydown.bind(this))
 
@@ -14,9 +14,9 @@ export class Dinosaur {
         // sprite width = 169-49 = 129
         // sprite height - 545-416 = 129
         this.sprites = {
-            "standing": { x: 49, y: 416, w: 120, h: 129 },
-            "walking": { x: 193, y: 416, w: 120, h: 129 },
-            "walking2": { x: 337, y: 416, w: 120, h: 129 }
+            "standing": { x: 1338, y: 2, w: 88, h: 94 },
+            "walking": { x: 1514, y: 2, w: 88, h: 94 },
+            "walking2": { x: 1602, y: 2, w: 88, h: 94 }
 
         }
     }
