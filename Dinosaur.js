@@ -22,7 +22,11 @@ export class Dinosaur {
     }
     keydown(event) {
         console.log("key pressed", event)
-        this.dy += -15
+        event.preventDefault()
+
+        if (this.y == 400) {
+            this.dy = -3
+        }
     }
 
     draw(ctx) {
@@ -50,7 +54,7 @@ export class Dinosaur {
         */
 
         this.y += this.dy
-        this.dy += 1
+        this.dy += 0.1
         if (this.y > 400) {
             this.dy = 0
             this.y = 400
