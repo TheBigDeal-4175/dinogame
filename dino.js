@@ -1,11 +1,13 @@
 import { Dinosaur } from './Dinosaur.js'
 
+import { pterodactyl } from './pterodactyl.js'
 
 export default class Game {
     constructor() {
         const canvas = document.getElementById("game")
         this.ctx = canvas.getContext("2d")
         this.Dinosaur = new Dinosaur()
+        this.pterodactyl = new pterodactyl()
     }
 
     run() {
