@@ -1,5 +1,5 @@
 import { Dinosaur } from './Dinosaur.js'  
-import { Cactus} from './Cactus.js'
+import { Cactus } from './Cactus.js'
 
 import { pterodactyl } from './pterodactyl.js'
 
