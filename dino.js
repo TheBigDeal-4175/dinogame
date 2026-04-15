@@ -1,4 +1,5 @@
-import { Dinosaur } from './Dinosaur.js'
+import { Dinosaur } from './Dinosaur.js'  
+import { Cactus} from './Cactus.js'
 
 
 export default class Game {
@@ -6,6 +7,7 @@ export default class Game {
         const canvas = document.getElementById("game")
         this.ctx = canvas.getContext("2d")
         this.Dinosaur = new Dinosaur()
+        this.Cactus = new Cactus()
     }
 
     run() {
