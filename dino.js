@@ -7,9 +7,24 @@ export default class Game {
     constructor() {
         const canvas = document.getElementById("game")
         this.ctx = canvas.getContext("2d")
-        this.Dinosaur = new Dinosaur()
-        this.pterodactyl = new pterodactyl()
-        this.Cactus = new Cactus()
+
+        this.sprite_sheet = new Image()
+        this.sprite_sheet.src = 'dinosprites.png'
+        
+        // top left 49,416
+        // bottom right 169,545
+        // sprite width = 169-49 = 129
+        // sprite height - 545-416 = 129
+        this.sprites = {
+            "standing": { x: 1338, y: 2, w: 88, h: 94 },
+            "walking": { x: 1514, y: 2, w: 88, h: 94 },
+            "walking2": { x: 1602, y: 2, w: 88, h: 94 }
+
+        }
+
+        this.Dinosaur = new Dinosaur(this)
+        this.pterodactyl = new pterodactyl(this)
+        this.Cactus = new Cactus(this)
     }
 
     run() {
