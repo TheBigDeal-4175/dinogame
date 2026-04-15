@@ -1,24 +1,12 @@
 export class Dinosaur {
-    constructor() {
+    constructor(game) {
+        this.game = game 
         this.x = 180
         this.y = 100
         this.dy = 0
 
-        this.sprite_sheet = new Image()
-        this.sprite_sheet.src = 'dinosprites.png'
-
         document.addEventListener("keydown", this.keydown.bind(this))
 
-        // top left 49,416
-        // bottom right 169,545
-        // sprite width = 169-49 = 129
-        // sprite height - 545-416 = 129
-        this.sprites = {
-            "standing": { x: 1338, y: 2, w: 88, h: 94 },
-            "walking": { x: 1514, y: 2, w: 88, h: 94 },
-            "walking2": { x: 1602, y: 2, w: 88, h: 94 }
-
-        }
     }
     keydown(event) {
         console.log("key pressed", event)
@@ -32,9 +20,9 @@ export class Dinosaur {
     draw(ctx) {
         this.scale = 0.5
         var current_sprite = "walking"
-        var sprite = this.sprites[current_sprite]
+        var sprite = this.game.sprites[current_sprite]
         // Draw Dinosaur sprite
-        ctx.drawImage(this.sprite_sheet,
+        ctx.drawImage(this.game.sprite_sheet,
             sprite.x, sprite.y,
             sprite.w, sprite.h,
 
