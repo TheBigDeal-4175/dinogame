@@ -30,7 +30,7 @@ export class Dinosaur {
     }
 
     draw(ctx) {
-        this.scale = 0.3
+        this.scale = 0.5
         var current_sprite = "walking"
         var sprite = this.sprites[current_sprite]
         // Draw Dinosaur sprite
@@ -53,6 +53,12 @@ export class Dinosaur {
         ctx.fill()
         */
 
+        this.dino = new Dinosaur()
+
+        this.cactus = new this.Cactus()
+
+
+        
         this.y += this.dy
         this.dy += 0.1
         if (this.y > 400) {
