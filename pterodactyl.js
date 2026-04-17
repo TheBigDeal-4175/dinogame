@@ -15,8 +15,8 @@ export class Pterodactyl {
             sprite.w, sprite.h,
 
             // destination cornor - upper left
-            this.x - sprite.w * this.scale / 2,
-            this.y - sprite.h * this.scale,
+            this.x - sprite.cx* this.scale,
+            this.y - sprite.cy* this.scale,
             // destination scale
             sprite.w * this.scale,
             sprite.h * this.scale

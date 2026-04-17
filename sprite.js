@@ -1,4 +1,4 @@
-export class Cactus {
+export class Sprite {
     constructor (game) {
         this.game = game
         this.x = 400        // right side of floor level
