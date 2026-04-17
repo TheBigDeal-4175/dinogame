@@ -1,4 +1,4 @@
-export class pterodactyl {
+export class Pterodactyl {
     constructor( game ) {
         this.x =600
         this.y =200
@@ -6,5 +6,20 @@ export class pterodactyl {
     } 
     draw(ctx) {
         
+        this.scale = 0.5
+        var current_sprite = "bird1"
+        var sprite = this.game.sprites[current_sprite]
+        // Draw Dinosaur sprite
+        ctx.drawImage(this.game.sprite_sheet,
+            sprite.x, sprite.y,
+            sprite.w, sprite.h,
+
+            // destination cornor - upper left
+            this.x - sprite.w * this.scale / 2,
+            this.y - sprite.h * this.scale,
+            // destination scale
+            sprite.w * this.scale,
+            sprite.h * this.scale
+        )
     }
 } 

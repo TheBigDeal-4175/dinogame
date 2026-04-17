@@ -41,12 +41,6 @@ export class Dinosaur {
         ctx.fill()
         */
 
-        this.dino = new Dinosaur()
-
-        this.cactus = new this.Cactus()
-
-
-        
         this.y += this.dy
         this.dy += 0.1
         if (this.y > 400) {

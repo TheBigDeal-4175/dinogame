@@ -1,7 +1,6 @@
 import { Dinosaur } from './Dinosaur.js'  
 import { Cactus } from './Cactus.js'
-
-import { pterodactyl } from './pterodactyl.js'
+import { Pterodactyl } from './pterodactyl.js'
 
 export default class Game {
     constructor() {
@@ -22,9 +21,9 @@ export default class Game {
 
         }
 
-        this.Dinosaur = new Dinosaur(this)
-        this.pterodactyl = new pterodactyl(this)
-        this.Cactus = new Cactus(this)
+        this.dinosaur = new Dinosaur(this)
+        this.pterodactyl = new Pterodactyl(this)
+        this.cactus = new Cactus(this)
     }
 
     run() {
@@ -38,9 +37,9 @@ export default class Game {
         this.ctx.lineTo(780,400)
         this.ctx.stroke()
         
-        this.Dinosaur.draw(this.ctx)
+        this.dinosaur.draw(this.ctx)
         this.pterodactyl.draw(this.ctx)
-        this.Cactus.draw(this.ctx)
+        this.cactus.draw(this.ctx)
         
         window.requestAnimationFrame(this.frame.bind(this))
 
