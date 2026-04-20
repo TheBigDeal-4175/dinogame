@@ -1,10 +1,14 @@
+import { Sprite } from './sprite.js'
+
 export class pterodactyl {
     constructor( game ) {
+        super(game)
         this.x =600
         this.y =200
-        this.game = game 
-    } 
-    draw(ctx) {
         
-    }
+
+        this.current_sprite = "cactus1"
+
+    } 
+
 } 
