@@ -1,14 +1,17 @@
 import { Sprite } from './sprite.js'
 
-export class pterodactyl {
+export class Pterodactyl extends Sprite {
     constructor( game ) {
         super(game)
         this.x =600
         this.y =200
         
 
-        this.current_sprite = "cactus1"
+        this.current_sprite = "bird1"
+    }
 
+        animate() {
+            this.x -= 1
     } 
 
 } 
