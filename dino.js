@@ -1,7 +1,6 @@
 import { Dinosaur } from './Dinosaur.js'  
 import { Cactus } from './Cactus.js'
-
-import { pterodactyl } from './pterodactyl.js'
+import { Pterodactyl } from './pterodactyl.js'
 
 export default class Game {
     constructor() {
@@ -16,19 +15,19 @@ export default class Game {
         // sprite width = 169-49 = 129
         // sprite height - 545-416 = 129
         this.sprites = {
-            "standing": { x: 1338, y: 2, w: 88, h: 94 },
-            "walking":  { x: 1514, y: 2, w: 88, h: 94 },
-            "walking2": { x: 1602, y: 2, w: 88, h: 94 },
-            "bird1":    { x: 260, y: 14, w: 93, h: 69 },
-            "bird2":    { x: 352, y: 2, w: 93, h: 69 },
-            "cactus":   { x: 652, y: 2, w: 50, h: 100 },
-            "cactus2":  { x: 702, y: 2, w: 49, h: 100 },
+            "standing": { x: 1338, y: 2, w: 88, h: 94, cx: 0, cy: 0 },
+            "walking":  { x: 1514, y: 2, w: 88, h: 94, cx: 0, cy: 0 },
+            "walking2": { x: 1602, y: 2, w: 88, h: 94, cx: 0, cy: 0 },
+            "bird1":    { x: 260, y: 14, w: 93, h: 69, cx: 28, cy: 20 },
+            "bird2":    { x: 352, y: 2, w: 93, h: 69, cx: 28, cy: 32 },
+            "cactus":   { x: 652, y: 2, w: 50, h: 100, cx: 0, cy: 0 },
+            "cactus2":  { x: 702, y: 2, w: 49, h: 100, cx: 0, cy: 0 },
 
         }
 
-        this.Dinosaur = new Dinosaur(this)
-        this.pterodactyl = new pterodactyl(this)
-        this.Cactus = new Cactus(this)
+        this.dinosaur = new Dinosaur(this)
+        this.pterodactyl = new Pterodactyl(this)
+        this.cactus = new Cactus(this)
     }
 
     run() {
@@ -42,9 +41,9 @@ export default class Game {
         this.ctx.lineTo(780,400)
         this.ctx.stroke()
         
-        this.Dinosaur.draw(this.ctx)
+        this.dinosaur.draw(this.ctx)
         this.pterodactyl.draw(this.ctx)
-        this.Cactus.draw(this.ctx)
+        this.cactus.draw(this.ctx)
         
         window.requestAnimationFrame(this.frame.bind(this))
 
