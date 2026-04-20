@@ -7,8 +7,11 @@ export class Pterodactyl extends Sprite {
         this.y =200
         
 
-        this.current_sprite = "cactus1"
+        this.current_sprite = "bird1"
+    }
 
+        animate() {
+            this.x -= 1
     } 
 
 } 
