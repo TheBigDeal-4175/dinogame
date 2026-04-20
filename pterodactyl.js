@@ -1,6 +1,6 @@
 import { Sprite } from './sprite.js'
 
-export class pterodactyl extends sprite { 
+export class Pterodactyl extends Sprite { 
     constructor( game ) {
         super(game)
         this.x =600

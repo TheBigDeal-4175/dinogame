@@ -7,7 +7,7 @@ export class Sprite {
     }
     draw(ctx) {
  
-        var sprite = this.game.sprites[current_sprite]
+        var sprite = this.game.sprites[this.current_sprite]
         ctx.drawImage(this.game.sprite_sheet,
             sprite.x, sprite.y,
             sprite.w, sprite.h,

@@ -20,8 +20,8 @@ export default class Game {
             "walking2": { x: 1602, y: 2, w: 88, h: 94, cx: 0, cy: 0 },
             "bird1":    { x: 260, y: 14, w: 93, h: 69, cx: 28, cy: 20 },
             "bird2":    { x: 352, y: 2, w: 93, h: 69, cx: 28, cy: 32 },
-            "cactus":   { x: 652, y: 2, w: 50, h: 100, cx: 0, cy: 0 },
-            "cactus2":  { x: 702, y: 2, w: 49, h: 100, cx: 0, cy: 0 },
+            "cactus":   { x: 652, y: 2, w: 50, h: 100, cx: 24, cy: 96 },
+            "cactus2":  { x: 702, y: 2, w: 49, h: 100, cx: 24, cy: 96 },
 
         }
 
@@ -45,6 +45,8 @@ export default class Game {
         this.pterodactyl.draw(this.ctx)
         this.cactus.draw(this.ctx)
         
+        this.Cactus.animate 
+        this.Pterodactyl.animate
         window.requestAnimationFrame(this.frame.bind(this))
 
     }
