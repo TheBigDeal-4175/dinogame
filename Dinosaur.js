@@ -1,6 +1,6 @@
 export class Dinosaur {
     constructor(game) {
-        this.game = game 
+        this.game = game
         this.x = 180
         this.y = 100
         this.dy = 0
@@ -27,8 +27,8 @@ export class Dinosaur {
             sprite.w, sprite.h,
 
             // destination cornor - upper left
-            this.x - sprite.cx* this.scale, 
-            this.y - sprite.cy* this.scale,
+            this.x - sprite.cx * this.scale,
+            this.y - sprite.cy * this.scale,
             // destination scale
             sprite.w * this.scale,
             sprite.h * this.scale
@@ -49,4 +49,13 @@ export class Dinosaur {
         }
     }
 
+    animate(ctx) {
+        this.y += this.dy
+        this.dy += 0.1
+        if (this.y > 200) {
+            this.dy = 0
+            this.y = 200
+
+        }
+    }
 }
