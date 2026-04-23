@@ -14,15 +14,16 @@ export default class Game {
         // bottom right 169,545
         // sprite width = 169-49 = 129
         // sprite height - 545-416 = 129
+        this.sprite_sheet = new Image()
+        this.sprite_sheet.src = "dinosprites.png"
         this.sprites = {
-            "standing": { x: 1338, y: 2, w: 88, h: 94, cx: 0, cy: 0 },
-            "walking":  { x: 1514, y: 2, w: 88, h: 94, cx: 0, cy: 0 },
-            "walking2": { x: 1602, y: 2, w: 88, h: 94, cx: 0, cy: 0 },
-            "bird1":    { x: 260, y: 14, w: 93, h: 69, cx: 28, cy: 20 },
-            "bird2":    { x: 352, y: 2, w: 93, h: 69, cx: 28, cy: 32 },
-            "cactus1":   { x: 652, y: 2, w: 50, h: 100, cx: 24, cy: 96 },
-            "cactus2":  { x: 702, y: 2, w: 49, h: 100, cx: 24, cy: 96 },
-
+            "standing": { x: 1338, y: 2, w: 89, h: 94, cx: 38, cy: 94 },
+            "walking1": { x: 1514, y: 2, w: 89, h: 94, cx: 38, cy: 94 },
+            "walking2": { x: 1602, y: 2, w: 89, h: 94, cx: 38, cy: 94 },
+            "bird1": { x: 260, y: 14, w: 93, h: 69, cx: 28, cy: 20 },
+            "bird2": { x: 352, y: 2, w: 93, h: 60, cx: 28, cy: 32 },
+            "cactus1": { x: 652, y: 2, w: 50, h: 100, cx: 24, cy: 96 },
+            "cactus2": { x: 702, y: 2, w: 49, h: 100, cx: 24, cy: 96 },
         }
 
         this.dinosaur = new Dinosaur(this)
@@ -45,8 +46,9 @@ export default class Game {
         this.pterodactyl.draw(this.ctx)
         this.cactus.draw(this.ctx)
         
-        this.Cactus.animate 
-        this.Pterodactyl.animate
+        this.cactus.animate ()
+        this.pterodactyl.animate()
+        this.dinosaur.animate()
         window.requestAnimationFrame(this.frame.bind(this))
 
     }
