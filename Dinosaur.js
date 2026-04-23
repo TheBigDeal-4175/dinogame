@@ -1,6 +1,9 @@
-export class Dinosaur {
+import { Sprite } from './sprite.js'
+export class Dinosaur extends Sprite {
     constructor(game) {
-        this.game = game
+    super(game)        
+    
+    this.set_sprite("standing")
         this.x = 180
         this.y = 100
         this.dy = 0
@@ -17,45 +20,13 @@ export class Dinosaur {
         }
     }
 
-    draw(ctx) {
-        this.scale = 0.5
-        var current_sprite = "walking"
-        var sprite = this.game.sprites[current_sprite]
-        // Draw Dinosaur sprite
-        ctx.drawImage(this.game.sprite_sheet,
-            sprite.x, sprite.y,
-            sprite.w, sprite.h,
-
-            // destination cornor - upper left
-            this.x - sprite.cx * this.scale,
-            this.y - sprite.cy * this.scale,
-            // destination scale
-            sprite.w * this.scale,
-            sprite.h * this.scale
-        )
-
-        /*
-        ctx.fillstyle = "rgb(255, 145 ,0"
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, 10, 0, Math.PI * 2)
-        ctx.fill()
-        */
-
+    animate(ctx) {
+      
         this.y += this.dy
         this.dy += 0.1
         if (this.y > 400) {
             this.dy = 0
             this.y = 400
-        }
-    }
-
-    animate(ctx) {
-        this.y += this.dy
-        this.dy += 0.1
-        if (this.y > 200) {
-            this.dy = 0
-            this.y = 200
-
         }
     }
 }
