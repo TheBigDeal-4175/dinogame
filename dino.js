@@ -45,9 +45,8 @@ export default class Game {
         this.pterodactyl.draw(this.ctx)
         this.cactus.draw(this.ctx)
         
-        this.cactus.animate()
-        this.pterodactyl.animate()
-
+        this.Cactus.animate 
+        this.Pterodactyl.animate
         window.requestAnimationFrame(this.frame.bind(this))
 
     }
