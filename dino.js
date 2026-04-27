@@ -29,6 +29,7 @@ export default class Game {
         this.dinosaur = new Dinosaur(this)
         this.pterodactyl = new Pterodactyl(this)
         this.cactus = new Cactus(this)
+
     }
 
     run() {
@@ -49,7 +50,11 @@ export default class Game {
         this.cactus.animate ()
         this.pterodactyl.animate()
         this.dinosaur.animate()
+        if (this.dinosaur.collides_with(this.cactus)) {
+            consle.log("HIT CACTUS!")
+        }
         window.requestAnimationFrame(this.frame.bind(this))
+ 
 
     }
 
