@@ -1,3 +1,4 @@
+import settings from './settings.js'
 import { Dinosaur } from './Dinosaur.js'  
 import { Cactus } from './Cactus.js'
 import { Pterodactyl } from './pterodactyl.js'
@@ -39,8 +40,8 @@ export default class Game {
     frame() {
         this.ctx.clearRect(0, 0, 800, 600)
         this.ctx.beginPath()
-        this.ctx.moveTo(10,400)
-        this.ctx.lineTo(780,400)
+        this.ctx.moveTo(10,settings.floor_y)
+        this.ctx.lineTo(780,settings.floor_y)
         this.ctx.stroke()
         
         this.dinosaur.draw(this.ctx)
@@ -51,7 +52,7 @@ export default class Game {
         this.pterodactyl.animate()
         this.dinosaur.animate()
         if (this.dinosaur.collides_with(this.cactus)) {
-            consle.log("HIT CACTUS!")
+            console.log("HIT CACTUS!")
         }
         window.requestAnimationFrame(this.frame.bind(this))
  

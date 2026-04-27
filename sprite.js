@@ -42,7 +42,7 @@ collides_with(other_sprite) {
     // "this" is first sprite
     // "other" is second sprite
     var self = this.get_bounds()
-    var other = other-sprite.get_bounds()
+    var other = other_sprite.get_bounds()
 
     return (
         (self.x < (other.x + other.w)) &&
