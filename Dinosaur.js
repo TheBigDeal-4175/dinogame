@@ -40,13 +40,25 @@ export class Dinosaur extends Sprite {
 
 
     animate(ctx) {
-        this.flap_counter -= 1
-        if (this.flap_counter == 0) {
-            this.flap_counter = 10
-            if (this.current_sprite == "walking1") {
-                this.current_sprite = "walking2"
-            } else {
-                this.current_sprite = "walking1"
+        if (this.state == WALKING) {
+            this.flap_counter -= 1
+            if (this.flap_counter == 0) {
+                this.flap_counter = 10
+                if (this.current_sprite == "walking1") {
+                    this.current_sprite = "walking2"
+                } else {
+                    this.current_sprite = "walking1"
+                }
+            }
+        } else if (this.state == CROUCHING) {
+            this.flap_counter -= 1
+            if (this.flap_counter == 0) {
+                this.flap_counter = 10
+                if (this.current_sprite == "crouching1") {
+                    this.current_sprite = "crouchong2"
+                } else {
+                    this.current_sprite = "crouching1"
+                }
             }
         }
         this.set_sprite(this.current_sprite)
