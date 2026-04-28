@@ -3,6 +3,9 @@ import { Dinosaur } from './Dinosaur.js'
 import { Cactus } from './Cactus.js'
 import { Pterodactyl } from './pterodactyl.js'
 
+const PLAYING = "PLAYING"
+const LOST = "LOST"
+
 export default class Game {
     constructor() {
         const canvas = document.getElementById("game")
@@ -10,7 +13,7 @@ export default class Game {
 
         this.sprite_sheet = new Image()
         this.sprite_sheet.src = 'dinosprites.png'
-        
+
         // top left 49,416
         // bottom right 169,545
         // sprite width = 169-49 = 129
@@ -33,6 +36,7 @@ export default class Game {
         this.pterodactyl = new Pterodactyl(this)
         this.cactus = new Cactus(this)
 
+        this.state = PLAYING
     }
 
     run() {
@@ -45,20 +49,35 @@ export default class Game {
         this.ctx.moveTo(10,settings.floor_y)
         this.ctx.lineTo(780,settings.floor_y)
         this.ctx.stroke()
-        
+
         this.dinosaur.draw(this.ctx)
         this.pterodactyl.draw(this.ctx)
         this.cactus.draw(this.ctx)
-        
-        this.cactus.animate ()
-        this.pterodactyl.animate()
-        this.dinosaur.animate()
+
+        if (this.state == PLAYING) {
+            this.cactus.animate()
+            this.pterodactyl.animate()
+            this.dinosaur.animate()
+        } else if (this.state == LOST) {
+            this.ctx
+            this.ctx.font = "60px times" 
+            this.ctx.fillStyle = "blue"
+            this.ctx.textAlign = "center"
+            this.ctx.textBaseline = "middle"
+            this.ctx.fillText("YOU LOST",
+             this.canvas.width/2, this.canvas.height/2);
+        }
+
+        if (this.dinosaur.collides_with(this.pterodactyl)) {
+            this.state + LOST
+        }
+
         if (this.dinosaur.collides_with(this.cactus)) {
             console.log("HIT CACTUS!")
         }
         window.requestAnimationFrame(this.frame.bind(this))
- 
 
     }
+
 
 }

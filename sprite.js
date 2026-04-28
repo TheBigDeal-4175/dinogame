@@ -1,5 +1,5 @@
 export class Sprite {
-    constructor (game) {
+    constructor(game) {
         this.game = game
         this.x = 400        // right side of floor level
         this.y = 400
@@ -25,36 +25,26 @@ export class Sprite {
             this.sprite.h * this.scale
         )
 
-
-    } 
+    }
 
     get_bounds() {
         return {
-            x: this.x - this.sprite.cx * this.scale,
-            y: this.y - this.sprite.cy * this.scale,
-            w:this.sprite.w * this.scale,
-            h:this.sprite.h * this.scale
-
+            x: this.x - (this.sprite.cx * this.scale),
+            y: this.y - (this.sprite.cy * this.scale),
+            w: this.sprite.w * this.scale,
+            h: this.sprite.h * this.scale
         }
     }
 
-collides_with(other_sprite) {
-    // "this" is first sprite
-    // "other" is second sprite
-    var self = this.get_bounds()
-    var other = other_sprite.get_bounds()
+    collides_with(other_sprite) {
+        var self = this.get_bounds()
+        var other = other_sprite.get_bounds()
 
-    return (
-        (self.x < (other.x + other.w)) &&
-        ((self.x + self.w) > other.x) &&
-        ( self.y < (other.y + other.h)) &&
-        (( self.y + self.h) > other.y))
+        return (
+            (self.x < (other.x + other.w)) &&
+            ((self.x + self.w) > other.x) &&
+            (self.y < (other.y + other.h)) &&
+            ((self.y + self.h) > other.y))
     }
-}   
-
-
-
-
-
-
+}
 
