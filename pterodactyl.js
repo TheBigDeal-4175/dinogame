@@ -1,10 +1,10 @@
 import { Sprite } from './sprite.js'
-
+import settings from './settings.js'
 export class Pterodactyl extends Sprite {
     constructor(game) {
         super(game)
         this.x = 600
-        this.y = 350
+        this.y = settings.floor_y
 
 
         this.current_sprite = "bird1"
@@ -25,7 +25,7 @@ export class Pterodactyl extends Sprite {
 
         this.set_sprite(this.current_sprite)
 
-        this.x -= 1
+        this.x -= settings.cactus_speed
     }
 
 } 
