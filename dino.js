@@ -20,6 +20,8 @@ export default class Game {
         this.sprites = {
             "standing": { x: 1338, y: 2, w: 89, h: 94, cx: 38, cy: 94 },
             "walking1": { x: 1514, y: 2, w: 89, h: 94, cx: 38, cy: 94 },
+            "crouching1": { x: 1862, y: 36, w: 118, h: 60, cx: 34, cy: 94 },
+            "crouching2": { x: 1980, y: 36, w: 118, h: 60, cx: 34, cy: 94 },
             "walking2": { x: 1602, y: 2, w: 89, h: 94, cx: 38, cy: 94 },
             "bird1": { x: 260, y: 14, w: 93, h: 69, cx: 28, cy: 20 },
             "bird2": { x: 352, y: 2, w: 93, h: 60, cx: 28, cy: 32 },
