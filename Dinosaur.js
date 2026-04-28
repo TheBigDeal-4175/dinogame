@@ -9,18 +9,26 @@ export class Dinosaur extends Sprite {
     constructor(game) {
         super(game)
 
-        this.current_sprite = "walking1"
-        this.set_sprite(this.current_sprite)
-        this.flap_counter = 10
-
         this.x = 180
         this.y = settings.floor_y
         this.dy = 0
+        this.set_state (WALKING)
 
         document.addEventListener("keydown", this.keydown.bind(this))
 
     }
     keydown(event) {
+        console.log("key pressed", event)
+        event.preventDefault()
+
+        if (event.key == "ArrowUp") {
+            if (this.y == settings.floor_y) {
+                this.dy = -settings.jump_dy
+            }
+        } else if (event.key == "ArrowDown") {
+            this.set_state(CROUCHING)
+        }
+    }keyuo(event) {
         console.log("key pressed", event)
         event.preventDefault()
 
@@ -45,9 +53,9 @@ export class Dinosaur extends Sprite {
 
     animate(ctx) {
         if (this.state == WALKING) {
-            this.flap_counter -= 1
-            if (this.flap_counter == 0) {
-                this.flap_counter = 10
+            this.walking_counter -= 1
+            if (this.walking_counter == 0) {
+                this.walking_counter = 10
                 if (this.current_sprite == "walking1") {
                     this.current_sprite = "walking2"
                 } else {
@@ -55,11 +63,11 @@ export class Dinosaur extends Sprite {
                 }
             }
         } else if (this.state == CROUCHING) {
-            this.flap_counter -= 1
-            if (this.flap_counter == 0) {
-                this.flap_counter = 10
+            this.walking_counter -= 1
+            if (this.walking_counter == 0) {
+                this.walking_counter = 10
                 if (this.current_sprite == "crouching1") {
-                    this.current_sprite = "crouchong2"
+                    this.current_sprite = "crouching2"
                 } else {
                     this.current_sprite = "crouching1"
                 }
