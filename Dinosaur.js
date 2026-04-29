@@ -15,7 +15,7 @@ export class Dinosaur extends Sprite {
         this.set_state (WALKING)
 
         document.addEventListener("keydown", this.keydown.bind(this))
-
+        document.addEventListener("keyup", this.keyup.bind(this))
     }
     keydown(event) {
         console.log("key pressed", event)
@@ -28,16 +28,14 @@ export class Dinosaur extends Sprite {
         } else if (event.key == "ArrowDown") {
             this.set_state(CROUCHING)
         }
-    }keyuo(event) {
+    }
+    
+    keyup(event) {
         console.log("key pressed", event)
         event.preventDefault()
 
-        if (event.key == "ArrowUp") {
-            if (this.y == settings.floor_y) {
-                this.dy = -settings.jump_dy
-            }
-        } else if (event.key == "ArrowDown") {
-            this.set_state(CROUCHING)
+        if (event.key == "ArrowDown") {
+            this.set_state(WALKING)
         }
     }
     set_state(state) {
@@ -47,6 +45,10 @@ export class Dinosaur extends Sprite {
         } else if (this.state == WALKING) {
             this.current_sprite = "walking1"
             this.walking_counter = 10
+        } else if (this.state == CROUCHING) {
+            this.current_sprite = "crouching1"
+            this.walking_counter = 10
+            
         }
     }
 

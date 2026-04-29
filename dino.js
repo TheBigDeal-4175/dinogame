@@ -8,11 +8,12 @@ const LOST = "LOST"
 
 export default class Game {
     constructor() {
-        const canvas = document.getElementById("game")
-        this.ctx = canvas.getContext("2d")
+        this.canvas = document.getElementById("game")
+        this.ctx = this.canvas.getContext("2d")
 
         this.sprite_sheet = new Image()
         this.sprite_sheet.src = 'dinosprites.png'
+
 
         // top left 49,416
         // bottom right 169,545
@@ -33,10 +34,20 @@ export default class Game {
         }
 
         this.dinosaur = new Dinosaur(this)
+
+        this.obstacles = [ ]
+
+        this.cactus = new Cactus(this)
+        this.obstacles.push(this.cactus)
+
         this.pterodactyl = new Pterodactyl(this)
+        this.obstacles.push(this.pterodactyl)
+        
         this.cactus = new Cactus(this)
 
         this.state = PLAYING
+        this.score = 0
+
     }
 
     run() {
@@ -50,16 +61,29 @@ export default class Game {
         this.ctx.lineTo(780,settings.floor_y)
         this.ctx.stroke()
 
-        this.dinosaur.draw(this.ctx)
-        this.pterodactyl.draw(this.ctx)
-        this.cactus.draw(this.ctx)
+        if (this.state == PLAYING) {
+            this.score += 1
+        }
 
+        // Draw the current score
+        this.ctx.font = "30px times"
+        this.ctx.fillStyle = "blue";
+        var actual_score = Math.round(this.score / 30)
+        this.ctx.fillText(`${actual_score}`, 400, 50);
+
+        this.dinosaur.draw(this.ctx)
+
+        console.log(this.obstacles)
+        for (const obstacle of this.obstacles) {
+            obstacle.draw(this.ctx)
+        }
+
+       
         if (this.state == PLAYING) {
             this.cactus.animate()
             this.pterodactyl.animate()
             this.dinosaur.animate()
         } else if (this.state == LOST) {
-            this.ctx
             this.ctx.font = "60px times" 
             this.ctx.fillStyle = "blue"
             this.ctx.textAlign = "center"
@@ -69,11 +93,12 @@ export default class Game {
         }
 
         if (this.dinosaur.collides_with(this.pterodactyl)) {
-            this.state + LOST
+            this.state = LOST
         }
 
         if (this.dinosaur.collides_with(this.cactus)) {
             console.log("HIT CACTUS!")
+            this.state = LOST
         }
         window.requestAnimationFrame(this.frame.bind(this))
 

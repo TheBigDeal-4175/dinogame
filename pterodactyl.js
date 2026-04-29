@@ -4,7 +4,7 @@ export class Pterodactyl extends Sprite {
     constructor(game) {
         super(game)
         this.x = 600
-        this.y = settings.floor_y
+        this.y = settings.floor_y -settings.bird_height
 
 
         this.current_sprite = "bird1"
