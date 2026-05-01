@@ -3,7 +3,7 @@ import settings from './settings.js'
 export class Cactus extends Sprite {
     constructor (game) {
         super(game)
-        this.x = 600        // right side of floor level
+        this.x = game.canvas.width + 50       // right side of floor level
         this.y = settings.floor_y
     
         this.set_sprite("cactus1")

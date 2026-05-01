@@ -37,13 +37,10 @@ export default class Game {
 
         this.obstacles = []
 
-        var cactus = new Cactus(this)
-        this.obstacles.push(cactus)
-
         // var pterodactyl = new Pterodactyl(this)
         // this.obstacles.push(pterodactyl)
 
-        this.cactus = new Cactus(this)
+        this.cactus_counter = 0
 
         this.state = PLAYING
         this.score = 0
@@ -61,6 +58,8 @@ export default class Game {
         this.ctx.lineTo(780, settings.floor_y)
         this.ctx.stroke()
 
+
+
         if (this.state == PLAYING) {
             this.score += 1
         }
@@ -73,7 +72,6 @@ export default class Game {
 
         this.dinosaur.draw(this.ctx)
 
-        console.log(this.obstacles)
         for (const obstacle of this.obstacles) {
             obstacle.draw(this.ctx)
         }
@@ -85,8 +83,16 @@ export default class Game {
                 obstacle.animate(this.ctx)
 
                 if (this.dinosaur.collides_with(obstacle)) {
-                    this.state = LOST
+                   // this.state = LOST
                 }
+            }
+
+            this.obstacles = this.obstacles.filter(o => o.x > -50)
+            this.cactus_counter -= 1
+            if (this.cactus_counter <= 0) {
+                var cactus = new Cactus(this)
+                this.obstacles.push(cactus)
+                this.cactus_counter = 100
             }
 
         } else if (this.state == LOST) {
@@ -103,5 +109,5 @@ export default class Game {
 
     }
 
-
+ 
 }
