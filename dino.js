@@ -92,7 +92,7 @@ export default class Game {
             if (this.cactus_counter <= 0) {
                 var cactus = new Cactus(this)
                 this.obstacles.push(cactus)
-                this.cactus_counter = 100
+                this.cactus_counter = settings.cactus_rate 
             }
 
         } else if (this.state == LOST) {

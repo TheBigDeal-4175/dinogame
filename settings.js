@@ -5,6 +5,7 @@ const settings = {
     bird_height: 60,
     bird_speed: 0.75,
     cactus_speed: 0.75,
+    cactus_rate: 500
 }
 
 export default settings;
