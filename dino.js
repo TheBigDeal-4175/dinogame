@@ -41,9 +41,9 @@ export default class Game {
         // this.obstacles.push(pterodactyl)
 
         this.cactus_counter = 0
-
         this.state = PLAYING
         this.score = 0
+        this.pterodactyl_counter = 500
 
     }
 
@@ -88,11 +88,19 @@ export default class Game {
             }
 
             this.obstacles = this.obstacles.filter(o => o.x > -50)
+
             this.cactus_counter -= 1
             if (this.cactus_counter <= 0) {
                 var cactus = new Cactus(this)
                 this.obstacles.push(cactus)
-                this.cactus_counter = 100
+                this.cactus_counter = settings.frequency + (Math.random() * 100)
+            }
+
+            this.pterodactyl_counter -= 1
+            if (this.pterodactyl_counter <= 0) {
+                var pterodactyl = new Pterodactyl(this)
+                this.obstacles.push(pterodactyl)
+                this.pterodactyl_counter = 250 + (Math.random() * 100)
             }
 
         } else if (this.state == LOST) {

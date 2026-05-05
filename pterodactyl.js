@@ -3,7 +3,7 @@ import settings from './settings.js'
 export class Pterodactyl extends Sprite {
     constructor(game) {
         super(game)
-        this.x = 600
+         this.x = game.canvas.width + 50 
         this.y = settings.floor_y -settings.bird_height
 
 
