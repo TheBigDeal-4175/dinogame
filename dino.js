@@ -93,14 +93,14 @@ export default class Game {
             if (this.cactus_counter <= 0) {
                 var cactus = new Cactus(this)
                 this.obstacles.push(cactus)
-                this.cactus_counter = settings.frequency + (Math.random() * 100)
+                this.cactus_counter = settings.cactus_frequency + (Math.random() * settings.cactus_randomness)
             }
 
             this.pterodactyl_counter -= 1
             if (this.pterodactyl_counter <= 0) {
                 var pterodactyl = new Pterodactyl(this)
                 this.obstacles.push(pterodactyl)
-                this.pterodactyl_counter = 250 + (Math.random() * 100)
+                this.pterodactyl_counter = settings.bird_frequency +(Math.random() * settings.bird_randomness)
             }
 
         } else if (this.state == LOST) {
