@@ -1,10 +1,10 @@
 const settings = {
     floor_y: 400,
-    gravity_dy: 0.023,
-    jump_dy: 2,
+    gravity_dy: 0.5,
+    jump_dy: 12,
     bird_height: 60,
-    bird_speed: 0.75,
-    cactus_speed: 0.75,
+    bird_speed: 2.5,
+    cactus_speed: 2.5,
     cactus_rate: 500
 }
 

@@ -83,7 +83,7 @@ export default class Game {
                 obstacle.animate(this.ctx)
 
                 if (this.dinosaur.collides_with(obstacle)) {
-                   // this.state = LOST
+                    this.state = LOST
                 }
             }
 
